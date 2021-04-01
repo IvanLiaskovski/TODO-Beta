@@ -1,0 +1,282 @@
+*,
+*:before,
+*:after {
+	margin: 0;
+	padding: 0;
+}
+
+input:focus, button:focus {
+	outline: none;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	background-color: #121212;
+}
+
+button {
+	border: none;
+	cursor: pointer;
+}
+
+h1 {
+	font-size: 2.25rem;
+	font-family: "Tomorrow", sans-serif;
+	text-align: center;
+	margin-top: 50px;
+	color: #8ac547;
+}
+
+.container { padding: 0 20px; }
+
+
+/*To do*/
+
+.todo-container {
+	width: 100%;
+	max-width: 600px;
+	border-radius: 4px;
+	margin: 0 auto;
+	margin-top: 30px;
+	overflow: hidden;
+	transition: .8s;
+}
+
+.todo-container.active {
+	box-shadow: 0px 0px 7px 0px #ff0000;
+}
+
+
+/*To do Header*/
+
+.todo-header {
+	height: 42px;
+	display: flex;
+	align-items: center;
+	background-color: #1E1E1E;
+}
+
+.todo-header button {
+	width: 15%;
+	transition: .3s;
+}
+
+#todo-val {
+	width: 70%;
+	font-size: 1rem;
+	font-family: "Roboto";
+	background-color: transparent;
+	border: none;
+	padding: 0 10px;
+	color: #ffffff;
+}
+
+#check-all {
+	background-color: transparent;
+	opacity: .8;	
+	color: #E31B6D;
+	transition: .3s;
+}
+
+#check-all:hover {
+	opacity: 1;
+	color: #af2f2f;
+}
+
+#todo-add {
+	height: 100%;
+	font-family: "Tomorrow";
+	opacity: .7;
+	color: #121212;
+}
+
+#todo-add:hover { opacity: 1; }
+
+
+/*To do Body*/
+
+.todo-body { background-color: #121212; }
+
+.task {
+	max-width: 600px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	background-color: #1E1E1E;
+	border-top: 4px solid #121212;
+	padding: 8px 2px;
+	overflow: hidden;
+	animation: show .4s linear;
+	color: #ffffff;
+}
+
+.task > div:first-child {
+	width: 100%;
+	max-width: 90%;
+	position: relative;
+}
+
+.task:last-child {
+	border-bottom: 4px solid #121212;
+}
+
+.check-mark, .todo-title {
+	display: inline-block;
+}
+
+.todo-title {
+	max-width: 80%;
+	word-wrap: break-word;
+	margin-left: 20%;
+	box-sizing: border-box;
+	transition: .5s;
+}
+
+.todo-title.active {
+	text-decoration: line-through;
+	opacity: .38;
+}
+
+.close {
+	width: 10%;
+	height: 100%;
+	font-size: 1.5rem;
+	background-color: transparent;
+	border: none;
+	padding: 0 5px;
+	color: #cc9a9a;
+}
+
+.check-mark {
+	font-size: 1rem;
+	border-radius: 50%;
+	border: 1px solid #E6E6E6;
+	padding: 4px 8px;
+	box-sizing: border-box;
+	position: absolute;
+	top: 50%;
+	left: 1%;
+	transform: translateY(-50%);
+	opacity: .1;
+	transition: .5s;
+	cursor: pointer;
+}
+
+.check-mark.active {
+	opacity: 1;
+	color: #5DC2AF;
+}
+
+
+/*To do Footer*/
+
+.todo-footer {
+	font-size: .875rem;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+	background-color: #1E1E1E;
+	padding: 10px 15px;
+	animation: show .8s linear;
+	color: #ffffff;
+}
+
+.todo-footer ul {
+	display: flex;
+	justify-content: space-between;
+	list-style: none;
+}
+
+.sort-task li {
+	border: 1px solid transparent;
+	border-radius: 4px;
+	padding: 2px 4px;
+	margin-top: 8px;
+	margin-left: 2px;
+	cursor: pointer;
+}
+
+.sort-task li:hover {
+	border-color: rgba(227, 27, 110, .6);
+}
+
+.active-sort {
+	border-color: rgba(227, 27, 110, .6) !important;
+}
+
+#clear-completed {
+	font-size: inherit;
+	font-family: 'Roboto', sans-serif;
+	background-color: transparent;
+	border: none;
+	margin-top: 8px;
+	color: inherit;
+}
+
+#clear-completed:hover {
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+/*Media*/
+
+@media(min-width:620px) {
+
+	h1 { font-size: 70px; }
+
+	/*Header*/
+
+	.todo-header { height: 60px; }
+
+	#todo-val {
+		font-size: 1.5rem;
+		padding: 0 14px;
+	}
+
+	#check-all {
+		font-size: 1.25rem;
+		margin-left: -14px;
+	}
+
+	#todo-add { font-size: 1.5rem; }
+
+	/*Body*/
+
+	.task { padding: 14px; }
+
+	.todo-title {
+		font-size: 1.5rem;
+		margin-left: 14%;
+	}
+
+	.check-mark {
+		font-size: 1.25rem;
+		padding: 5px 10px;
+	}
+
+	/*Footer*/
+
+	.todo-footer {
+		font-size: 1rem;
+		flex-direction: row;
+		padding: 15px;
+	}
+
+	.sort-task li {
+		padding: 5px 10px;
+		margin-top: 0;
+	}
+
+	#clear-completed { margin-top: 0; }
+}
+
+@media (min-width: 992px) {
+	.close { display: none; }
+	.task:hover .close { display: block; }
+}
+
+@keyframes show {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
